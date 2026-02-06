@@ -676,3 +676,99 @@ a:hover {
     margin-bottom: 24px;
   }
 }
+
+@media (max-width: 560px) {
+  :root {
+    --bg-strong: #070a12;
+  }
+
+  body::before {
+    opacity: 0.25;
+  }
+
+  body::after {
+    opacity: 0.16;
+  }
+
+  .container {
+    width: min(1100px, 92vw);
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .hero-grid {
+    gap: 28px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 7vw + 0.6rem, 3.2rem);
+  }
+
+  .hero-role {
+    font-size: 1.05rem;
+  }
+
+  .lead {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .hero-meta {
+    font-size: 0.9rem;
+  }
+
+  .portrait-wrap {
+    width: min(280px, 90%);
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-head h2 {
+    font-size: 1.8rem;
+  }
+
+  .timeline-card {
+    padding: 22px 20px 22px 30px;
+  }
+
+  .project-card,
+  .skill-group,
+  .contact-card {
+    padding: 20px;
+  }
+
+  .chip-row span,
+  .skill-tags span,
+  .meta-row span {
+    font-size: 0.78rem;
+  }
+
+  .contact-card {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: clamp(2rem, 8vw + 0.3rem, 2.8rem);
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .project-card,
+  .skill-group,
+  .contact-card,
+  .timeline-card {
+    border-radius: 14px;
+  }
+}
