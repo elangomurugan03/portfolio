@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 15% 96%;
+    --foreground: 0 0% 15%;
+    --card: 30 20% 98%;
+    --card-foreground: 0 0% 15%;
+    --popover: 30 20% 98%;
+    --popover-foreground: 0 0% 15%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 99%;
+    --secondary: 30 10% 92%;
+    --secondary-foreground: 0 0% 35%;
+    --muted: 30 15% 94%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 262 83% 95%;
+    --accent-foreground: 262 83% 45%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 30 15% 96%;
+    --border: 30 8% 88%;
+    --input: 30 8% 88%;
+    --ring: 262 83% 58%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 70%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 5%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 0 0% 5%;
+    --muted-foreground: 0 0% 75%;
+    --accent: 262 83% 70%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 92%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 262 83% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+  }
+  
+  .enable-motion * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  
+  .underline-links a:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Glow Effect */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Glow component styles */
+.glow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--glowingeffect-border-width, 1px));
+  border: var(--glowingeffect-border-width, 1px) solid transparent;
+  border-radius: inherit;
+  background: var(--gradient);
+  background-attachment: fixed;
+  opacity: var(--active, 0);
+  transition: opacity 0.3s;
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  mask-image: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start, 0) - var(--spread, 20)) * 1deg),
+      #00000000 0deg,
+      #fff,
+      #00000000 calc(var(--spread, 20) * 2deg)
+    );
+}
+
+/* Root variables for colors */
+:root {
+  --black: #000;
+  --black-100: #000;
+  --black-200: #000108;
+  --black-300: #00010a;
+  --white: #fff;
+  --white-100: #bec1dd;
+  --white-200: #c1c2d3;
+}
